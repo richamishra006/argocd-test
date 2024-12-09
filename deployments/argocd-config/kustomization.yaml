@@ -1,3 +1,5 @@
 resources:
 - resources/controller-application.yaml
 - resources/k8s-addons.yaml
+- resources/project-k8s-addons.yaml
+- resources/project-controller.yaml
