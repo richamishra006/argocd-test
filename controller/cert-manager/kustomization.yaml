@@ -8,3 +8,6 @@ helmCharts:
   repo: "https://charts.jetstack.io"
   version: 1.16.2
   includeCRDs: true
+  valuesInline:
+    crds:
+     enabled: true

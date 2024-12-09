@@ -22896,6 +22896,12 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-applicationset-controller
     spec:
+      tolerations:
+            - key: "CriticalAddonsOnly"
+              operator: "Equal"
+              value: "true"
+              effect: "NoSchedule"
+
       containers:
       - args:
         - /usr/local/bin/argocd-applicationset-controller
@@ -23110,6 +23116,11 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-dex-server
     spec:
+      tolerations:
+      - key: "CriticalAddonsOnly"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -23225,6 +23236,12 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-notifications-controller
     spec:
+      tolerations:
+            - key: "CriticalAddonsOnly"
+              operator: "Equal"
+              value: "true"
+              effect: "NoSchedule"
+
       containers:
       - args:
         - /usr/local/bin/argocd-notifications
@@ -23315,6 +23332,12 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-redis
     spec:
+      tolerations:
+            - key: "CriticalAddonsOnly"
+              operator: "Equal"
+              value: "true"
+              effect: "NoSchedule"
+
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -23395,6 +23418,12 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-repo-server
     spec:
+      tolerations:
+            - key: "CriticalAddonsOnly"
+              operator: "Equal"
+              value: "true"
+              effect: "NoSchedule"
+
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -23728,6 +23757,11 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-server
     spec:
+      tolerations:
+            - key: "CriticalAddonsOnly"
+              operator: "Equal"
+              value: "true"
+              effect: "NoSchedule"
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -24118,6 +24152,11 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-application-controller
     spec:
+      tolerations:
+            - key: "CriticalAddonsOnly"
+              operator: "Equal"
+              value: "true"
+              effect: "NoSchedule"
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
