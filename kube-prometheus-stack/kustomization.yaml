@@ -1,4 +1,4 @@
 resources:
 - resources/guestbook-deployment.yaml
 - resources/guestbook-svc.yaml
-#- resources/prometheus.yaml
+- prometheus/
