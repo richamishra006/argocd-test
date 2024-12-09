@@ -2,9 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: default
 helmCharts:
-- name: kube-prometheus-stack
-  releaseName: kube-prometheus-stack
+- name: cert-manager
+  releaseName: cert-manager
   namespace: default
-  repo: "https://prometheus-community.github.io/helm-charts"
-  version: 50.3.1
+  repo: "https://charts.jetstack.io"
+  version: 1.16.2
   includeCRDs: true
