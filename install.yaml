@@ -22635,6 +22635,7 @@ metadata:
   name: argocd-cm
 data:
   kustomize.buildOptions: --enable-alpha-plugins --enable-helm --load-restrictor LoadRestrictionsNone
+  server.insecure: "true"
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -22848,6 +22849,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
   name: argocd-server
 spec:
+  type: NodePort
   ports:
   - name: http
     port: 80
