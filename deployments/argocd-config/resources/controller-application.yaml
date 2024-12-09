@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus-stack
+  name: controller
   namespace: argocd
 spec:
-  project: default
+  project: controller
   source:
     repoURL: https://github.com/richamishra006/argocd-test.git
     targetRevision: HEAD
-    path: kube-prometheus-stack
+    path: controller
   destination:
     server: https://kubernetes.default.svc
     namespace: default

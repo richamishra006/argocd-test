@@ -1,0 +1,3 @@
+resources:
+- resources/controller-application.yaml
+- resources/k8s-addons.yaml
