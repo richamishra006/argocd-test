@@ -1,3 +1,0 @@
-resources:
-- guestbook-deployment.yaml
-- guestbook-svc.yaml
