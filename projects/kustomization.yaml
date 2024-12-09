@@ -1,3 +1,2 @@
 resources:
-- resources/guestbook-app.yaml
 - resources/kube-prometheus-stack-app.yaml
