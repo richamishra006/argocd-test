@@ -1,20 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: guestbook-ui
+  name: nginx-deployment
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: guestbook-ui
+      app: nginx
   template:
     metadata:
       labels:
-        app: guestbook-ui
+        app: nginx
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-        name: guestbook-ui
+      - name: nginx
+        image: nginx:latest
         ports:
         - containerPort: 80
+        volumeMounts:
+        - name: nginx-html
+          mountPath: /usr/share/nginx/html
+        command: ["/bin/sh", "-c"]
+        args:
+        - >
+          cp /usr/share/nginx/html/index.html /usr/share/nginx/html/index.html.backup &&
+          nginx -g 'daemon off;' &&
+          while true; do
+            inotifywait -e modify /usr/share/nginx/html/index.html &&
+            cp /usr/share/nginx/html/index.html /usr/share/nginx/html/index.html.backup &&
+            echo "ConfigMap updated and reloaded at $(date)";
+          done;
+      volumes:
+      - name: nginx-html
+        configMap:
+          name: nginx-html-config
