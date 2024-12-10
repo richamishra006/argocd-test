@@ -21,16 +21,6 @@ spec:
         volumeMounts:
         - name: nginx-html
           mountPath: /usr/share/nginx/html
-        command: ["/bin/sh", "-c"]
-        args:
-        - >
-          cp /usr/share/nginx/html/index.html /usr/share/nginx/html/index.html.backup &&
-          nginx -g 'daemon off;' &&
-          while true; do
-            inotifywait -e modify /usr/share/nginx/html/index.html &&
-            cp /usr/share/nginx/html/index.html /usr/share/nginx/html/index.html.backup &&
-            echo "ConfigMap updated and reloaded at $(date)";
-          done;
       volumes:
       - name: nginx-html
         configMap:
