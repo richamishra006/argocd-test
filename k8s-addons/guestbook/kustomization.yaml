@@ -4,7 +4,7 @@ resources:
   - guestbook-deployment.yaml
   - guestbook-svc.yaml
 configMapGenerator:
-  - name: nginx-html-config
+  - name: nginx-html
     files:
       - index.html
 generatorOptions:
